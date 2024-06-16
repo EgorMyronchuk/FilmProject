@@ -1,0 +1,14 @@
+version: '3.3'
+
+services:
+  postgres96:
+    image: postgres:9.6
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: 'film_owner'
+      POSTGRES_PASSWORD: '1234567'
+    ports:
+      - "5435:5432"
+    container_name: film_project
+    volumes:
+      - ./init-db:/docker-entrypoint-initdb.d
